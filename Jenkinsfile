@@ -65,4 +65,4 @@ pipeline {
                 echo 'I will when when pipeline sucess'
             }
         }
-    }
+    
