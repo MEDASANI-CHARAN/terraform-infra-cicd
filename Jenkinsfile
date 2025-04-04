@@ -4,7 +4,7 @@ pipeline {
     }
     options {
                 // timeout(time: 100, unit: 'SECONDS')
-                timeout(time: 30, unit: 'MINUTES')
+                timeout(time: 5, unit: 'MINUTES')
                 disableConcurrentBuilds() 
                  ansiColor('xterm')
             }
@@ -17,7 +17,7 @@ pipeline {
                     terraform init -reconfigure
                 '''
             }
-        }
+        } 
         stage('Plan') {
             steps {
                 sh '''
