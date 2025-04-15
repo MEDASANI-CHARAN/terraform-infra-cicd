@@ -17,9 +17,9 @@ variable common_tags {
 }
 
 variable zone_name {
-  default = "daws78s.xyz"
+  default = "daws2025.onine"
 }
 
 variable zone_id {
-  default = "Z02187721AH5R2Y00ZRKU"
+  default = "Z07416722EK0JW5B66VOJ"
 }

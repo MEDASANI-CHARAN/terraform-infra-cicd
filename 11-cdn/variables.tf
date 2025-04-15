@@ -18,5 +18,5 @@ variable common_tags {
 
 variable zone_name {
   type = string
-  default = "daws78s.xyz"
+  default = "daws2025.online"
 }
