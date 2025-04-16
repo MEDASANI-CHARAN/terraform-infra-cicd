@@ -37,20 +37,33 @@ pipeline {
         stage('Deploy') {
             when {
                 expression {
+                    params.actions == 'Apply'
+                }
+            }
+            input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                }
+            steps {
+                sh '''
+                   cd 01-vpc
+                   terraform apply -auto-approve
+                '''
+            }
+        } 
+        stage('Destroy') {
+            when {
+                expression {
                     params.actions == 'Destroy'
                 }
             }
-            // input {
-            //     message "Should we continue?"
-            //     ok "Yes, we should."
-            //     }
             steps {
                 sh '''
                    cd 01-vpc
                    terraform destroy -auto-approve
                 '''
             }
-        } 
+        }
     }
 
     post { 
