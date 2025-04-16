@@ -32,7 +32,7 @@ pipeline {
                   echo this is deploy
                 '''
             }
-        }
+        } 
 
     }
     post { 
