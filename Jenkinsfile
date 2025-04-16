@@ -41,6 +41,7 @@ pipeline {
                 '''
             }
         } 
+    }
 
     post { 
             always { 
@@ -53,7 +54,6 @@ pipeline {
             failure { 
                 echo 'I will run when pipeline failure'
             }
-        }
-    } 
+        } 
 }
     
