@@ -19,7 +19,7 @@ pipeline {
                     terraform init -reconfigure
                 '''
             }
-        }
+        } 
         stage('Plan') {
             steps {
                 sh '''
