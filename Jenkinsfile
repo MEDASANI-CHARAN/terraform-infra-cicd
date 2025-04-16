@@ -8,82 +8,33 @@ pipeline {
                 disableConcurrentBuilds() 
                  ansiColor('xterm')
             }
-    parameters {
-        choice(name: 'action', choices: ['Apply', 'Destroy'], description: 'Pick something')
-    }
+    // parameters {
+    //     choice(name: 'action', choices: ['Apply', 'Destroy'], description: 'Pick something')
+    // }
     stages {
         stage('Init') {
             steps {
                 sh '''
                     ls -ltr
-                    cd 01-vpc
-                    terraform init -reconfigure
+
                 '''
             }
         } 
         stage('Plan') {
-            when {
-                expression{
-                    params.action == 'Apply'
-                }
-            }
             steps {
                 sh '''
-                    ls -ltr
-                    cd 01-vpc
-                    terraform plan
+                    sh 'this is plan'
                 '''
             }
         }
         stage('Deploy') {
-            when {
-                expression{
-                    params.action == 'Apply'
-                }
-            }
-            input {
-                message "Should we continue?"
-                ok "Yes, we should."              
-            }
             steps {
                 sh '''
-                    ls -ltr
-                    cd 01-vpc
-                    terraform apply -auto-approve
+                   sh 'this is deploy'
                 '''
             }
         }
 
-        stage('Destroy') {
-            when {
-                expression{
-                    params.action == 'Destroy'
-                }
-            }
-            steps {
-                sh '''
-                    ls -ltr
-                    cd 01-vpc
-                    terraform destroy -auto-approve
-                '''
-            }
-        }
-
-        stage('print params') {
-            steps {
-                echo "Hello ${params.PERSON}"
-
-                echo "Biography: ${params.BIOGRAPHY}"
-
-                echo "Toggle: ${params.TOGGLE}"
-
-                echo "Choice: ${params.CHOICE}"
-
-                echo "Password: ${params.PASSWORD}"
-
-                echo "triggred again"
-            } 
-        }
     }
     post { 
             always { 
