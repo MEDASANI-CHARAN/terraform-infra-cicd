@@ -6,7 +6,6 @@ pipeline {
                 // timeout(time: 100, unit: 'SECONDS')
                 timeout(time: 5, unit: 'MINUTES')
                 disableConcurrentBuilds() 
-                ansiColor('xterm')
             }
     // parameters {
     //     choice(name: 'action', choices: ['Apply', 'Destroy'], description: 'Pick something')
