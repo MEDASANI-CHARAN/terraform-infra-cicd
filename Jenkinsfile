@@ -34,7 +34,6 @@ pipeline {
                 message "Should we continue?"
                 ok "Yes, we should."
                 }
-            }
             steps {
                 sh '''
                    cd 01-vpc
@@ -42,6 +41,7 @@ pipeline {
                 '''
             }
         } 
+
     post { 
             always { 
                 echo 'I will always say Hello again!'
@@ -55,3 +55,4 @@ pipeline {
             }
         }
     } 
+    
