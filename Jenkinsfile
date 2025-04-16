@@ -5,7 +5,7 @@ pipeline {
     options {
                 // timeout(time: 100, unit: 'SECONDS')
                 timeout(time: 5, unit: 'MINUTES')
-                disableConcurrentBuilds() 
+                disableConcurrentBuilds()
             }
     // parameters {
     //     choice(name: 'action', choices: ['Apply', 'Destroy'], description: 'Pick something')
@@ -15,10 +15,10 @@ pipeline {
             steps {
                 sh '''
                     ls -ltr
-                    terraform init 
+                    terraform init -reconfigure
                 '''
             }
-        } 
+        }
         stage('Plan') {
             steps {
                 sh '''
@@ -41,7 +41,10 @@ pipeline {
                 deleteDir()
             }
             success { 
-                echo 'I will when when pipeline sucess'
+                echo 'I will run when pipeline sucess'
+            }
+            failure { 
+                echo 'I will run when pipeline failure'
             }
         }
     } 
