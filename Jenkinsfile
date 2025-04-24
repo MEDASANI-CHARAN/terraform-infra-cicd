@@ -16,7 +16,7 @@ pipeline {
             steps {
                 sh '''
                     cd 01-vpc ; cd ../02-sg
-                    terraform init
+                    terraform init -upgrade
                     ls -ltr
                 '''
             }
