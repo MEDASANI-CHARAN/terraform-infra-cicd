@@ -31,7 +31,6 @@ resource "aws_lb_listener" "http" {
   }
 }
 
-
 module "records" {
   source  = "terraform-aws-modules/route53/aws//modules/records"
   version = "~> 3.0"

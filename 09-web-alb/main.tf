@@ -57,7 +57,7 @@ module "records" {
 
   records = [
     {
-      name    = "web-${var.environment}"
+      name    = "web-${var.environment}" #web-dev.dwas2025.online
       type    = "A"
       allow_overwrite = true
       alias = {
