@@ -6,7 +6,7 @@ pipeline {
                 // timeout(time: 100, unit: 'SECONDS')
                 timeout(time: 5, unit: 'MINUTES')
                 disableConcurrentBuilds()
-                ansiColor('xterm')
+                //ansiColor('xterm')
             }
     parameters {
         choice(name: 'action', choices: ['Apply', 'Destroy'], description: 'Pick something')
@@ -16,54 +16,53 @@ pipeline {
             steps {
                 sh '''
                     ls -ltr
-                    cd 01-vpc
-                    terraform init -reconfigure
+                    
                 '''
             }
         }
-        stage('Plan') {
-            when {
-                expression {
-                    params.action == 'Apply'
-                }
-            }
-            steps {
-                sh '''
-                   cd 01-vpc
-                   terraform plan
-                '''
-            }
-        }
-        stage('Deploy') {
-            when {
-                expression {
-                    params.action == 'Apply'
-                }
-            }
-            input {
-                message "Should we continue?"
-                ok "Yes, we should."
-                }
-            steps {
-                sh '''
-                   cd 01-vpc
-                   terraform apply -auto-approve
-                '''
-            }
-        } 
-        stage('Destroy') {
-            when {
-                expression {
-                    params.action == 'Destroy'
-                }
-            }
-            steps {
-                sh '''
-                   cd 01-vpc
-                   terraform destroy -auto-approve
-                '''
-            }
-        }
+        // stage('Plan') {
+        //     when {
+        //         expression {
+        //             params.action == 'Apply'
+        //         }
+        //     }
+        //     steps {
+        //         sh '''
+        //            cd 01-vpc
+        //            terraform plan
+        //         '''
+        //     }
+        // }
+        // stage('Deploy') {
+        //     when {
+        //         expression {
+        //             params.action == 'Apply'
+        //         }
+        //     }
+        //     input {
+        //         message "Should we continue?"
+        //         ok "Yes, we should."
+        //         }
+        //     steps {
+        //         sh '''
+        //            cd 01-vpc
+        //            terraform apply -auto-approve
+        //         '''
+        //     }
+        // } 
+        // stage('Destroy') {
+        //     when {
+        //         expression {
+        //             params.action == 'Destroy'
+        //         }
+        //     }
+        //     steps {
+        //         sh '''
+        //            cd 01-vpc
+        //            terraform destroy -auto-approve
+        //         '''
+        //     }
+        // }
     }
 
     post { 
