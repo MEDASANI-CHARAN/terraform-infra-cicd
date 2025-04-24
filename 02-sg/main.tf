@@ -1,6 +1,6 @@
 module db {
     #source = "../../terraform-aws-security"
-    source = "https://github.com/MEDASANI-CHARAN/terraform-aws-security.git"
+    source = "git::https://github.com/MEDASANI-CHARAN/terraform-aws-security.git?ref=main"
     project_name = var.project_name
     environment = var.environment
     sg_description  = "SG for DB MySQL instance"
@@ -11,7 +11,7 @@ module db {
 
 module backend {
     #source = "../../terraform-aws-security"
-    source = "https://github.com/MEDASANI-CHARAN/terraform-aws-security.git"
+    source = "git::https://github.com/MEDASANI-CHARAN/terraform-aws-security.git?ref=main"
     project_name = var.project_name
     environment = var.environment
     sg_description  = "SG for Backend instance"
@@ -22,7 +22,7 @@ module backend {
 
 module frontend {
     #source = "../../terraform-aws-security"
-    source = "https://github.com/MEDASANI-CHARAN/terraform-aws-security.git"
+    source = "git::https://github.com/MEDASANI-CHARAN/terraform-aws-security.git?ref=main"
     project_name = var.project_name
     environment = var.environment
     sg_description  = "SG for frontend instance"
@@ -33,7 +33,7 @@ module frontend {
 
 module bastion {
     #source = "../../terraform-aws-security"
-    source = "https://github.com/MEDASANI-CHARAN/terraform-aws-security.git"
+    source = "git::https://github.com/MEDASANI-CHARAN/terraform-aws-security.git?ref=main"
     project_name = var.project_name
     environment = var.environment
     sg_description  = "SG for bastion instance"
@@ -44,7 +44,7 @@ module bastion {
 
 module app-alb {
     #source = "../../terraform-aws-security"
-    source = "https://github.com/MEDASANI-CHARAN/terraform-aws-security.git"
+    source = "git::https://github.com/MEDASANI-CHARAN/terraform-aws-security.git?ref=main"
     project_name = var.project_name
     environment = var.environment
     sg_description  = "SG for app_alb instance"
@@ -55,7 +55,7 @@ module app-alb {
 
 module web-alb {
     #source = "../../terraform-aws-security"
-    source = "https://github.com/MEDASANI-CHARAN/terraform-aws-security.git"
+    source = "git::https://github.com/MEDASANI-CHARAN/terraform-aws-security.git?ref=main"
     project_name = var.project_name
     environment = var.environment
     sg_description  = "SG for web_alb instance"
@@ -66,7 +66,7 @@ module web-alb {
 
 module vpn {
     #source = "../../terraform-aws-security"
-    source = "https://github.com/MEDASANI-CHARAN/terraform-aws-security.git"
+    source = "git::https://github.com/MEDASANI-CHARAN/terraform-aws-security.git?ref=main"
     project_name = var.project_name
     environment = var.environment
     sg_description  = "SG for vpn instance"
