@@ -15,7 +15,7 @@ pipeline {
         stage('Init') {
             steps {
                 sh '''
-                    cd 01-vpc ; cd 02-sg
+                    cd 01-vpc ; cd../02-sg
                     terraform init
                     ls -ltr
                 '''
@@ -29,7 +29,7 @@ pipeline {
             }
             steps {
                 sh '''
-                   cd 01-vpc ; cd 02-sg
+                   cd 01-vpc ; cd../02-sg
                    terraform plan
                 '''
             }
